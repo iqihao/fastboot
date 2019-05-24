@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    name: iot
+    url: jdbc:mysql://localhost:3306/fastboot?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: root!2018
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  liquibase:
+      change-log: classpath:db/changelog/db.changelog-master.xml
+      enabled: true
+
+
+

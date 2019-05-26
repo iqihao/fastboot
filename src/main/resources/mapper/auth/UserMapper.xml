@@ -1,10 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="net.ioage.app.fastboot.auth.mapper.UserMapper">
+
+    <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="net.ioage.app.fastboot.auth.entity.User">
-        <id column="id" property="id" javaType="bigint"/>
-        <result column="login" property="login" javaType="VARCHAR"/>
-        <result column="password_hash" property="password" javaType="VARCHAR"/>
-    </resultMap>login
+        <id column="id" property="id" />
+        <result column="login" property="login" />
+        <result column="password_hash" property="passwordHash" />
+        <result column="first_name" property="firstName" />
+        <result column="last_name" property="lastName" />
+        <result column="email" property="email" />
+        <result column="image_url" property="imageUrl" />
+        <result column="activated" property="activated" />
+        <result column="lang_key" property="langKey" />
+        <result column="activation_key" property="activationKey" />
+        <result column="reset_key" property="resetKey" />
+        <result column="created_by" property="createdBy" />
+        <result column="created_date" property="createdDate" />
+        <result column="reset_date" property="resetDate" />
+        <result column="last_modified_by" property="lastModifiedBy" />
+        <result column="last_modified_date" property="lastModifiedDate" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, login, password_hash, first_name, last_name, email, image_url, activated, lang_key, activation_key, reset_key, created_by, created_date, reset_date, last_modified_by, last_modified_date
+    </sql>
 
 </mapper>

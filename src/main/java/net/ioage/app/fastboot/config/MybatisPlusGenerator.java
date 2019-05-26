@@ -20,7 +20,7 @@ import java.util.Scanner;
  * </p>
  *
  */
-public class MysqlGenerator {
+public class MybatisPlusGenerator {
 
     /**
      * <p>
@@ -102,7 +102,7 @@ public class MysqlGenerator {
         strategy.setEntityLombokModel(true);
 //        strategy.setSuperControllerClass("com.baomidou.mybatisplus.samples.generator.common.BaseController");
         //包含的表名，支持正则表达式
-        strategy.setInclude("user_authority");
+        strategy.setInclude("authority");
 //        strategy.setSuperEntityColumns("id");
         strategy.setControllerMappingHyphenStyle(true);
         strategy.setTablePrefix(pc.getModuleName() + "_");

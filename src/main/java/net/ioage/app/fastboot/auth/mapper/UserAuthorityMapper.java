@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * </p>
  *
  * @author fastboot
- * @since 2019-05-24
+ * @since 2019-05-26
  */
 public interface UserAuthorityMapper extends BaseMapper<UserAuthority> {
 

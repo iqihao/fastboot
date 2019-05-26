@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="net.ioage.app.fastboot.auth.mapper.UserMapper">
+    <resultMap id="BaseResultMap" type="net.ioage.app.fastboot.auth.entity.User">
+        <id column="id" property="id" javaType="bigint"/>
+        <result column="login" property="login" javaType="VARCHAR"/>
+        <result column="password_hash" property="password" javaType="VARCHAR"/>
+    </resultMap>login
 
 </mapper>

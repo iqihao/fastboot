@@ -51,6 +51,11 @@ public class MysqlGenerator {
         gc.setOutputDir(projectPath + "/src/main/java");
         gc.setAuthor("fastboot");
         gc.setOpen(false);
+        gc.setFileOverride(true);
+        //mapper.xml配置
+        gc.setBaseColumnList(true);
+        gc.setBaseResultMap(true);
+
         mpg.setGlobalConfig(gc);
 
         // 数据源配置
@@ -104,6 +109,7 @@ public class MysqlGenerator {
         mpg.setStrategy(strategy);
         // 选择 freemarker 引擎需要指定如下加，注意 pom 依赖必须有！
         mpg.setTemplateEngine(new FreemarkerTemplateEngine());
+
         mpg.execute();
     }
 

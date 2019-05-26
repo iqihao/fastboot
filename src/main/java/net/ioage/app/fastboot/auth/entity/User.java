@@ -1,9 +1,13 @@
 package net.ioage.app.fastboot.auth.entity;
 
     import com.baomidou.mybatisplus.annotation.IdType;
+    import com.baomidou.mybatisplus.annotation.TableField;
     import com.baomidou.mybatisplus.annotation.TableId;
     import java.time.LocalDateTime;
     import java.io.Serializable;
+    import java.util.HashSet;
+    import java.util.Set;
+
     import lombok.Data;
     import lombok.EqualsAndHashCode;
     import lombok.experimental.Accessors;
@@ -28,7 +32,8 @@ package net.ioage.app.fastboot.auth.entity;
 
     private String login;
 
-    private String passwordHash;
+    @TableField(value = "password_hash")
+    private String password;
 
     private String firstName;
 
@@ -56,5 +61,6 @@ package net.ioage.app.fastboot.auth.entity;
 
     private LocalDateTime lastModifiedDate;
 
-
+    @TableField(exist = false)
+    private Set<Authority> authorities = new HashSet<>();
 }

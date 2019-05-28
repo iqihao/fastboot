@@ -20,7 +20,7 @@ import java.util.Scanner;
  * </p>
  *
  */
-public class MysqlGenerator {
+public class MybatisPlusGenerator {
 
     /**
      * <p>
@@ -51,6 +51,11 @@ public class MysqlGenerator {
         gc.setOutputDir(projectPath + "/src/main/java");
         gc.setAuthor("fastboot");
         gc.setOpen(false);
+        gc.setFileOverride(true);
+        //mapper.xml配置
+        gc.setBaseColumnList(true);
+        gc.setBaseResultMap(true);
+
         mpg.setGlobalConfig(gc);
 
         // 数据源配置
@@ -97,13 +102,14 @@ public class MysqlGenerator {
         strategy.setEntityLombokModel(true);
 //        strategy.setSuperControllerClass("com.baomidou.mybatisplus.samples.generator.common.BaseController");
         //包含的表名，支持正则表达式
-        strategy.setInclude("user_authority");
+        strategy.setInclude("authority");
 //        strategy.setSuperEntityColumns("id");
         strategy.setControllerMappingHyphenStyle(true);
         strategy.setTablePrefix(pc.getModuleName() + "_");
         mpg.setStrategy(strategy);
         // 选择 freemarker 引擎需要指定如下加，注意 pom 依赖必须有！
         mpg.setTemplateEngine(new FreemarkerTemplateEngine());
+
         mpg.execute();
     }
 

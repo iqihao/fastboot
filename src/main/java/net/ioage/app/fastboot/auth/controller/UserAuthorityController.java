@@ -11,7 +11,7 @@ import org.springframework.stereotype.Controller;
  * </p>
  *
  * @author fastboot
- * @since 2019-05-24
+ * @since 2019-05-26
  */
 @Controller
 @RequestMapping("/auth/user-authority")

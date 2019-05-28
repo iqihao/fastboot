@@ -1,14 +1,17 @@
 package net.ioage.app.fastboot.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.stereotype.Component;
 
 import javax.validation.constraints.NotNull;
 
 /**
  * Created by qihao01 on 2019/5/24.
  */
+@Component
 @ConfigurationProperties(prefix = "fastboot", ignoreUnknownFields = false)
 public class FastBootProperties {
+
     private final Security security = new Security();
     public Security getSecurity() {
         return security;

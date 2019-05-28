@@ -23,8 +23,9 @@
     <!--<logger name="org.apache" level="error"/>-->
     <!--<logger name="com.alibaba" level="error"/>-->
     <!--<logger name="org.apache.kafka.clients.producer.ProducerConfig" level="warn"/>-->
+    <logger name="net.ioage.app.fastboot.auth.mapper" level="DEBUG" />
 
-    <root level="INFO">
+    <root level="DEBUG">
         <appender-ref ref="CONSOLE"/>
         <appender-ref ref="FILE"/>
     </root>

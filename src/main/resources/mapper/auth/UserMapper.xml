@@ -2,11 +2,14 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="net.ioage.app.fastboot.auth.mapper.UserMapper">
 
+    <resultMap id="AuthResultMap" type="net.ioage.app.fastboot.auth.entity.Authority">
+        <result column="name" property="name"/>
+    </resultMap>
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="net.ioage.app.fastboot.auth.entity.User">
         <id column="id" property="id" />
         <result column="login" property="login" />
-        <result column="password_hash" property="passwordHash" />
+        <result column="password_hash" property="password" />
         <result column="first_name" property="firstName" />
         <result column="last_name" property="lastName" />
         <result column="email" property="email" />
@@ -20,11 +23,36 @@
         <result column="reset_date" property="resetDate" />
         <result column="last_modified_by" property="lastModifiedBy" />
         <result column="last_modified_date" property="lastModifiedDate" />
+        <collection property="authorities" resultMap="AuthResultMap"/>
     </resultMap>
+
+
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
         id, login, password_hash, first_name, last_name, email, image_url, activated, lang_key, activation_key, reset_key, created_by, created_date, reset_date, last_modified_by, last_modified_date
     </sql>
+
+    <select id="getUserWithAuthByLogin" resultMap="BaseResultMap" parameterType="java.lang.String">
+        SELECT
+            <include refid="Base_Column_List"/>, authority.`name`
+        FROM
+            USER u
+        JOIN user_authority ua ON u.id = ua.user_id
+        JOIN authority ON ua.authority_name = authority.`name`
+        WHERE
+            u.login = #{login,jdbcType=VARCHAR}
+    </select>
+
+    <select id="getUserWithAuthByEmail" resultMap="BaseResultMap" parameterType="java.lang.String">
+        SELECT
+        <include refid="Base_Column_List"/>, authority.`name`
+        FROM
+        USER u
+        JOIN user_authority ua ON u.id = ua.user_id
+        JOIN authority ON ua.authority_name = authority.`name`
+        WHERE
+        u.email = #{email,jdbcType=VARCHAR}
+    </select>
 
 </mapper>

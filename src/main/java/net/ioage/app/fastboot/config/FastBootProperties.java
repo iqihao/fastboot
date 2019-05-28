@@ -2,6 +2,7 @@ package net.ioage.app.fastboot.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
+import org.springframework.web.cors.CorsConfiguration;
 
 import javax.validation.constraints.NotNull;
 
@@ -16,7 +17,10 @@ public class FastBootProperties {
     public Security getSecurity() {
         return security;
     }
-
+    private final CorsConfiguration cors = new CorsConfiguration();
+    public CorsConfiguration getCors() {
+        return cors;
+    }
     public static class Security {
 
         private final ClientAuthorization clientAuthorization = new ClientAuthorization();

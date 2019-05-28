@@ -28,12 +28,11 @@ spring:
         exclusions: '*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*'
         reset-enable: false
 server:
-  port: 8080
+  port: 8090
 logging:
   config: classpath:logback-spring.xml
   path: logs/
   file: fastboot
-
 fastboot:
     security:
         authentication:
@@ -44,4 +43,6 @@ fastboot:
                 token-validity-in-seconds: 86400
                 # 30 days
                 token-validity-in-seconds-for-remember-me: 2592000
+mybatis:
+  mapper-locations: classpath:mapper/**/*.xml
 

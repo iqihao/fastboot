@@ -23,7 +23,7 @@ import java.util.stream.Collectors;
 /**
  * Authenticate a user from the database.
  */
-//@Component("userDetailsService")
+@Component("userDetailsService")
 public class DomainUserDetailsService implements UserDetailsService {
 
     private final Logger log = LoggerFactory.getLogger(DomainUserDetailsService.class);
@@ -38,20 +38,17 @@ public class DomainUserDetailsService implements UserDetailsService {
     @Transactional
     public UserDetails loadUserByUsername(final String login) {
         log.debug("Authenticating {}", login);
-        return null;
-//
-//        if (new EmailValidator().isValid(login, null)) {
-//            QueryWrapper<User> userWrapper = new QueryWrapper<>();
-//            userWrapper.eq("email",login);
-//            return userMapper.selectList(userWrapper)
-//                .map(user -> createSpringSecurityUser(login, user))
-//                .orElseThrow(() -> new UsernameNotFoundException("User with email " + login + " was not found in the database"));
-//        }
-//
-//        String lowercaseLogin = login.toLowerCase(Locale.ENGLISH);
-//        return userRepository.findOneWithAuthoritiesByLogin(lowercaseLogin)
-//            .map(user -> createSpringSecurityUser(lowercaseLogin, user))
-//            .orElseThrow(() -> new UsernameNotFoundException("User " + lowercaseLogin + " was not found in the database"));
+
+        if (new EmailValidator().isValid(login, null)) {
+            return userMapper.getUserWithAuthByEmail(login)
+                .map(user -> createSpringSecurityUser(login, user))
+                .orElseThrow(() -> new UsernameNotFoundException("User with email " + login + " was not found in the database"));
+        }
+
+        String lowercaseLogin = login.toLowerCase(Locale.ENGLISH);
+        return userMapper.getUserWithAuthByLogin(lowercaseLogin)
+            .map(user -> createSpringSecurityUser(lowercaseLogin, user))
+            .orElseThrow(() -> new UsernameNotFoundException("User " + lowercaseLogin + " was not found in the database"));
 
     }
 

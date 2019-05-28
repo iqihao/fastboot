@@ -11,5 +11,7 @@
     <sql id="Base_Column_List">
         name
     </sql>
+    
+
 
 </mapper>

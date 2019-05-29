@@ -14,7 +14,7 @@ import org.springframework.stereotype.Controller;
  * @since 2019-05-26
  */
 @Controller
-@RequestMapping("/auth/user-authority")
+@RequestMapping("/api/auth/user-authority")
 public class UserAuthorityController {
 
 }

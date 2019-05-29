@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * <p>
@@ -17,13 +18,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * @author fastboot
  * @since 2019-05-26
  */
-@Controller
-@RequestMapping("/auth/user")
+@RestController
+@RequestMapping("/api/auth/user")
 public class UserController {
 
     @ResponseBody
     @RequestMapping(value = "show", method = RequestMethod.GET)
     public ResponseEntity test(){
-        return new ResponseEntity("123", HttpStatus.OK);
+        throw new UnsupportedOperationException();
+//        return new ResponseEntity("123", HttpStatus.OK);
     }
 }

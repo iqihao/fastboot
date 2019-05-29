@@ -25,7 +25,7 @@
     <!--<logger name="org.apache.kafka.clients.producer.ProducerConfig" level="warn"/>-->
     <logger name="net.ioage.app.fastboot.auth.mapper" level="DEBUG" />
 
-    <root level="DEBUG">
+    <root level="INFO">
         <appender-ref ref="CONSOLE"/>
         <appender-ref ref="FILE"/>
     </root>

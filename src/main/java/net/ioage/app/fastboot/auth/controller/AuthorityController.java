@@ -4,6 +4,7 @@ package net.ioage.app.fastboot.auth.controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * <p>
@@ -13,8 +14,8 @@ import org.springframework.stereotype.Controller;
  * @author fastboot
  * @since 2019-05-26
  */
-@Controller
-@RequestMapping("/auth/authority")
+@RestController
+@RequestMapping("/api/auth/authority")
 public class AuthorityController {
 
 }

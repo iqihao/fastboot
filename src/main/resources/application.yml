@@ -1,32 +1,6 @@
 spring:
   profiles:
     active: dev
-  datasource:
-    druid:
-      initial-size: 1
-      min-idle: 1
-      max-active: 20
-      test-on-borrow: true
-      max-wait: 60000
-      time-between-eviction-runs-millis: 60000
-      min-evictable-idle-time-millis: 300000
-      validation-query: SELECT 1 FROM DUAL
-      test-While-Idle: true
-      test-on-return: false
-      pool-prepared-statements: false
-      max-pool-prepared-statement-per-connection-size: 20
-      filters: stat,wall,config
-      connection-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000;config.decrypt=false
-      monitor:
-        enabled: enabled # 配置此属性Monitor才生效
-        druid-stat-view: /druid/*
-        druid-web-stat-filter: /*
-        allow: 127.0.0.1
-        deny:
-        login-username: admin
-        login-password: 123456
-        exclusions: '*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*'
-        reset-enable: false
   mvc:
     throw-exception-if-no-handler-found: true
   resources:

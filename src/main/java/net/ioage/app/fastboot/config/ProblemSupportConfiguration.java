@@ -12,7 +12,8 @@ import org.zalando.problem.validation.ConstraintViolationProblemModule;
 public class ProblemSupportConfiguration {
     @Bean
     public ProblemModule problemModule() {
-        return new ProblemModule();
+        //是否在响应中包含堆栈跟踪
+        return new ProblemModule().withStackTraces(false);
     }
 
     @Bean

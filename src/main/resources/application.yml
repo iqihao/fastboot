@@ -21,6 +21,5 @@ fastboot:
                 token-validity-in-seconds: 86400
                 # 30 days
                 token-validity-in-seconds-for-remember-me: 2592000
-mybatis:
-  mapper-locations: classpath:mapper/**/*.xml
-
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/**/*.xml

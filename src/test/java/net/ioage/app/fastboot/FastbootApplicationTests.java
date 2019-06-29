@@ -24,6 +24,7 @@ public class FastbootApplicationTests {
     @Test
     public void getUserInfo(){
         Optional<User> user = userMapper.getUserWithAuthByLogin("asg");
+        User userFirst = userMapper.selectById(1);
         System.out.print(user.toString());
     }
 

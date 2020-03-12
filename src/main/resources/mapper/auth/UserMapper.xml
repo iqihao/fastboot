@@ -37,7 +37,7 @@
         SELECT
             <include refid="Base_Column_List"/>, authority.`name`
         FROM
-            USER u
+            `user` u
         JOIN user_authority ua ON u.id = ua.user_id
         JOIN authority ON ua.authority_name = authority.`name`
         WHERE
@@ -48,7 +48,7 @@
         SELECT
         <include refid="Base_Column_List"/>, authority.`name`
         FROM
-        USER u
+        `user` u
         JOIN user_authority ua ON u.id = ua.user_id
         JOIN authority ON ua.authority_name = authority.`name`
         WHERE

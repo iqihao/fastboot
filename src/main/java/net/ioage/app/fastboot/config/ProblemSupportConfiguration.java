@@ -13,7 +13,7 @@ public class ProblemSupportConfiguration {
     @Bean
     public ProblemModule problemModule() {
         //是否在响应中包含堆栈跟踪
-        return new ProblemModule().withStackTraces(false);
+        return new ProblemModule().withStackTraces(true);
     }
 
     @Bean

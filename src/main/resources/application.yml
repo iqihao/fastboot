@@ -23,3 +23,5 @@ fastboot:
                 token-validity-in-seconds-for-remember-me: 2592000
 mybatis-plus:
   mapper-locations: classpath*:/mapper/**/*.xml
+  global-config:
+    banner: false

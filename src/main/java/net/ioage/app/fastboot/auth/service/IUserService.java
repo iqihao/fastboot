@@ -1,7 +1,10 @@
 package net.ioage.app.fastboot.auth.service;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import net.ioage.app.fastboot.auth.entity.User;
 import com.baomidou.mybatisplus.extension.service.IService;
+import net.ioage.app.fastboot.auth.service.dto.UserDTO;
+import net.ioage.app.fastboot.common.entity.QueryRequest;
 
 import java.util.Optional;
 
@@ -20,5 +23,7 @@ public interface IUserService extends IService<User> {
     Optional<User> getUserWithAuthByEmail(String email);
 
     Optional<User> getCurrentUserInfo();
+
+    IPage<UserDTO> findUsers(QueryRequest queryRequest, UserDTO userDTO);
 
 }

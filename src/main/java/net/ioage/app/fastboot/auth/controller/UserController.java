@@ -1,11 +1,16 @@
 package net.ioage.app.fastboot.auth.controller;
 
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import net.ioage.app.fastboot.auth.AuthoritiesConstants;
 import net.ioage.app.fastboot.auth.SecurityUtils;
+import net.ioage.app.fastboot.auth.controller.vm.ManagedUserVM;
 import net.ioage.app.fastboot.auth.controller.vm.UserInfoVM;
 import net.ioage.app.fastboot.auth.entity.User;
 import net.ioage.app.fastboot.auth.service.IUserService;
+import net.ioage.app.fastboot.auth.service.dto.UserDTO;
+import net.ioage.app.fastboot.common.entity.QueryRequest;
+import net.ioage.app.fastboot.common.entity.ReturnItem;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -50,6 +55,12 @@ public class UserController {
         } else {
             return new ResponseEntity<>("找不到对应的用户信息",HttpStatus.UNAUTHORIZED);
         }
+    }
 
+    @ResponseBody
+    @RequestMapping(value = "list", method = RequestMethod.POST)
+    public ResponseEntity getUserList(QueryRequest request, UserDTO user){
+        IPage<UserDTO> userDTOIPage = userService.findUsers(request,user);
+        return new ResponseEntity<>(new ReturnItem<>(userDTOIPage),HttpStatus.OK);
     }
 }

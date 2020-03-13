@@ -44,7 +44,7 @@ public class UserController {
             User userInfo = user.get();
             List<String> roles  = new ArrayList<>();
             userInfo.getAuthorities().forEach(s->roles.add(s.getName()));
-            UserInfoVM userInfoVM = new UserInfoVM().setName(userInfo.getFirstName()+userInfo.getLastName())
+            UserInfoVM userInfoVM = new UserInfoVM().setName(userInfo.getFirstName())
                     .setAvatar(userInfo.getImageUrl()).setRoles(roles);
             return new ResponseEntity<>(userInfoVM,HttpStatus.OK);
         } else {

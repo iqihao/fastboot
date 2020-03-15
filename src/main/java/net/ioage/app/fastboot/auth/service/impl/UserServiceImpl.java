@@ -49,7 +49,8 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
 
     public IPage<UserDTO> findUsers(QueryRequest queryRequest, UserDTO userDTO) {
         LambdaQueryWrapper<User> queryWrapper = new LambdaQueryWrapper<>();
-        queryWrapper.eq(null != userDTO.getLogin(),User::getLogin,userDTO.getLogin());
+        queryWrapper.likeLeft(null != userDTO.getLogin(),User::getLogin,userDTO.getLogin());
+        queryWrapper.likeLeft(null!=userDTO.getEmail(),User::getEmail,userDTO.getEmail());
         Page<User> page = new Page<>(queryRequest.getPageNum(), queryRequest.getPageSize());
         SortUtil.handlePageSort(queryRequest, page, "id", Constants.ORDER_ASC, false);
         IPage<User> userIPage = this.page(page, queryWrapper);

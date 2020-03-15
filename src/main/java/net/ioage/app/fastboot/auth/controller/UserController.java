@@ -58,7 +58,7 @@ public class UserController {
     }
 
     @ResponseBody
-    @RequestMapping(value = "list", method = RequestMethod.POST)
+    @RequestMapping(value = "list", method = RequestMethod.GET)
     public ResponseEntity getUserList(QueryRequest request, UserDTO user){
         IPage<UserDTO> userDTOIPage = userService.findUsers(request,user);
         return new ResponseEntity<>(new ReturnItem<>(userDTOIPage),HttpStatus.OK);
